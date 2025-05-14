@@ -1,0 +1,222 @@
+/* CurrentProjects styles.css */
+
+.current-projects-section {
+  position: relative;
+  background-color: #121212;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.current-projects-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.current-projects-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.current-projects-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #FF9D00;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.current-projects-subtitle {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  width: 100%;
+}
+
+/* Project Card Styles */
+.project-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 320px;
+  background: rgba(30, 30, 35, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(255, 157, 0, 0.15);
+  border: 1px solid rgba(255, 157, 0, 0.3);
+}
+
+.project-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 157, 0, 0.3), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.project-card:hover:before {
+  opacity: 1;
+}
+
+.project-card-content {
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-preview {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  background-color: #1a1a1a;
+}
+
+.project-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #1a1a1a;
+  transition: transform 0.5s ease;
+  padding: 8px;
+}
+
+.project-preview::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 50%);
+  pointer-events: none;
+}
+
+.project-card:hover .project-preview img {
+  transform: scale(1.05);
+}
+
+.preview-title-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.project-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.project-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  flex-grow: 1;
+}
+
+.project-vision {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.project-vision span {
+  font-weight: 600;
+  color: #FF9D00;
+}
+
+.project-cta {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(255, 157, 0, 0.2);
+  color: #FF9D00;
+  border: 1px solid rgba(255, 157, 0, 0.3);
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.project-cta:hover {
+  background: rgba(255, 157, 0, 0.3);
+  box-shadow: 0 0 15px rgba(255, 157, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .current-projects-title {
+    font-size: 2rem;
+  }
+  
+  .current-projects-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* For horizontal scrolling on smaller screens */
+@media (max-width: 480px) {
+  .projects-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .project-card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+  }
+}

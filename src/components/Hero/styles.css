@@ -1,0 +1,51 @@
+/* Hero component styles */
+
+/* Role text animation */
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  20%, 80% { opacity: 1; }
+}
+
+.hero-role {
+  display: inline-block;
+  animation: fadeInOut 3s ease-in-out infinite;
+}
+
+/* Brand colors */
+.bg-brand-orange {
+  background-color: #FF9500;
+}
+
+.text-brand-light-gray {
+  color: #F5F5F5;
+}
+
+/* Hover effects */
+.hover\:bg-orange-700:hover {
+  background-color: #C76D00;
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+/* Focus styles */
+.focus\:ring-orange-400:focus {
+  --tw-ring-color: rgba(255, 149, 0, 0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #hero-title-static {
+    font-size: 3.5rem; /* Adjust for smaller screens */
+  }
+  
+  #hero-dynamic-text {
+    font-size: 1.5rem;
+  }
+}
+
+/* Background gradient overlay for smoother transitions */
+.hero-gradient-overlay {
+  background: linear-gradient(to bottom, rgba(18, 18, 18, 0) 0%, #121212 100%);
+}
