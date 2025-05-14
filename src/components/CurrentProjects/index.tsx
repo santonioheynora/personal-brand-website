@@ -1,12 +1,17 @@
-// React is used implicitly for JSX
+// No need to import React with modern JSX transform
 import './styles.css';
+
+// Import images directly
+import heynoraImage from '/src/assets/images/HeyNora-preview.png';
+import summitsummaryImage from '/src/assets/images/SummitSummary-preview.png';
+import resumeplugImage from '/src/assets/images/ResumePlug-preview.png';
 
 interface ProjectData {
   id: string;
   title: string;
   description: string;
   vision: string;
-  imageUrl: string;
+  imageUrl: any;
   url: string;
   ctaText: string;
 }
@@ -20,7 +25,7 @@ const CurrentProjects = (): JSX.Element => {
       title: 'HeyNora',
       description: 'Your real-time music co-pilot and companion for making music. Built for producers, DJs, and anyone with a beat in their head.',
       vision: 'Everyone can finish a song — even if they\'ve never made music before.',
-      imageUrl: '/src/assets/images/HeyNora-preview.png', // Purple site with headphones
+      imageUrl: heynoraImage, // Purple site with headphones
       url: 'https://heynora.ai',
       ctaText: 'Visit Site'
     },
@@ -29,7 +34,7 @@ const CurrentProjects = (): JSX.Element => {
       title: 'SummitSummary',
       description: 'An RFP Executive Summary Generator. Built for proposal managers who want to win more, write less.',
       vision: 'Save hours on every bid — and finally kill the blank page.',
-      imageUrl: '/src/assets/images/SummitSummary-preview.png', // Save hours on proposal writing
+      imageUrl: summitsummaryImage, // Save hours on proposal writing
       url: '#',
       ctaText: 'Visit Site'
     },
@@ -38,7 +43,7 @@ const CurrentProjects = (): JSX.Element => {
       title: 'ResumePlug',
       description: 'A resume chatbot that actually improves your resume on the spot.',
       vision: 'Make everyone look hire-ready, fast — no resume consultant needed.',
-      imageUrl: '/src/assets/images/ResumePlug-preview.png', // Optimize your resume
+      imageUrl: resumeplugImage, // Optimize your resume
       url: 'https://resumeplug.netlify.app',
       ctaText: 'Visit Site'
     }
